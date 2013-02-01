@@ -28,6 +28,7 @@
 
   var Typeahead = function (element, options) {
     this.$element = $(element)
+    this.$container = $(element).parent()
     this.options = $.extend({}, $.fn.typeahead.defaults, options)
     this.matcher = this.options.matcher || this.matcher
     this.sorter = this.options.sorter || this.sorter
@@ -136,6 +137,7 @@
 
   , render: function (items) {
       var that = this
+      this.isMouseOverDropdown = false;
 
       items = $(items).map(function (i, item) {
         i = $(that.options.item).attr('data-value', item)
@@ -171,6 +173,8 @@
     }
 
   , listen: function () {
+      var that = this;
+
       this.$element
         .on('blur',     $.proxy(this.blur, this))
         .on('keypress', $.proxy(this.keypress, this))
@@ -179,6 +183,14 @@
       if (this.eventSupported('keydown')) {
         this.$element.on('keydown', $.proxy(this.keydown, this))
       }
+
+      this.$container.on('mouseleave', '.dropdown-menu', function () {
+        that.isMouseOverDropdown = false;
+      });
+
+      this.$container.on('mouseenter', '.dropdown-menu', function () {
+        that.isMouseOverDropdown = true;
+      });
 
       this.$menu
         .on('click', $.proxy(this.click, this))
@@ -252,13 +264,18 @@
           this.lookup()
       }
 
-      e.stopPropagation()
+      // e.stopPropagation()
       e.preventDefault()
   }
 
   , blur: function (e) {
       var that = this
-      setTimeout(function () { that.hide() }, 150)
+      if (that.isMouseOverDropdown === false) {
+        setTimeout(function () {
+            that.hide();
+        }, 150)
+      }
+
     }
 
   , click: function (e) {
