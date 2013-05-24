@@ -47,6 +47,9 @@
       if (this.options.trigger == 'click') {
         this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
       } else if (this.options.trigger != 'manual') {
+        if ('ontouchstart' in document.documentElement) {
+          this.$element.on('touchstart.' + this.type, this.options.selector, $.proxy(this.toggle, this))
+        }
         eventIn = this.options.trigger == 'hover' ? 'mouseenter' : 'focus'
         eventOut = this.options.trigger == 'hover' ? 'mouseleave' : 'blur'
         this.$element.on(eventIn + '.' + this.type, this.options.selector, $.proxy(this.enter, this))
