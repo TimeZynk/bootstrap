@@ -80,16 +80,16 @@
   .nav-collapse .dropdown-menu li + li a {
     margin-bottom: 2px;
   }
-  .nav-collapse .nav > li > a:hover,
-  .nav-collapse .dropdown-menu a:hover {
+  .no-touch .nav-collapse .nav > li > a:hover,
+  .no-touch .nav-collapse .dropdown-menu a:hover {
     background-color: @navbarBackground;
   }
   .navbar-inverse .nav-collapse .nav > li > a,
   .navbar-inverse .nav-collapse .dropdown-menu a {
     color: @navbarInverseLinkColor;
   }
-  .navbar-inverse .nav-collapse .nav > li > a:hover,
-  .navbar-inverse .nav-collapse .dropdown-menu a:hover {
+  .no-touch .navbar-inverse .nav-collapse .nav > li > a:hover,
+  .no-touch .navbar-inverse .nav-collapse .dropdown-menu a:hover {
     background-color: @navbarInverseBackground;
   }
   // Buttons in the navbar
@@ -112,8 +112,8 @@
     .border-radius(0);
     .box-shadow(none);
   }
-  .nav-collapse .open > .dropdown-menu { 
-    display: block; 
+  .nav-collapse .open > .dropdown-menu {
+    display: block;
   }
 
   .nav-collapse .dropdown-menu:before,

@@ -49,7 +49,7 @@
 	color: #c2ccd1;
 }
 
-#qunit-header a:hover,
+.no-touch #qunit-header a:hover,
 #qunit-header a:focus {
 	color: #fff;
 }
@@ -97,7 +97,7 @@
 	color: #c2ccd1;
 	text-decoration: none;
 }
-#qunit-tests li a:hover,
+.no-touch #qunit-tests li a:hover,
 #qunit-tests li a:focus {
 	color: #000;
 }

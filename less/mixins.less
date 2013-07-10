@@ -500,7 +500,8 @@
   .reset-filter();
 
   // in these cases the gradient won't cover the background, so we override
-  &:hover, &:active, &.active, &.disabled, &[disabled] {
+  // &:hover,
+  &:active, &.active, &.disabled, &[disabled] {
     color: @textColor;
     background-color: @endColor;
     *background-color: darken(@endColor, 5%);
@@ -510,6 +511,14 @@
   &:active,
   &.active {
     background-color: darken(@endColor, 10%) e("\9");
+  }
+}
+
+.buttonBackgroundHover(@startColor, @endColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  &:hover {
+    color: @textColor;
+    background-color: @endColor;
+    *background-color: darken(@endColor, 5%);
   }
 }
 
