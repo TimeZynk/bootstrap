@@ -159,15 +159,19 @@ table {
 // HOVER EFFECT
 // ------------
 // Placed here since it has to come after the potential zebra striping
-.table-hover {
-  tbody {
-    tr:hover td,
-    tr:hover th {
-      background-color: @tableBackgroundHover;
-    }
-  }
-}
+// .table-hover {
+//   tbody {
+//     tr:hover td,
+//     tr:hover th {
+//       background-color: @tableBackgroundHover;
+//     }
+//   }
+// }
 
+.no-touch .table-hover tbody tr:hover td,
+.no-touch .table-hover tbody tr:hover th {
+  background-color: @tableBackgroundHover;
+}
 
 // TABLE CELL SIZING
 // -----------------
@@ -221,17 +225,31 @@ table th[class*="span"],
 }
 
 // Hover states for .table-hover
-.table-hover tbody tr {
-  &.success:hover td {
-    background-color: darken(@successBackground, 5%);
-  }
-  &.error:hover td {
-    background-color: darken(@errorBackground, 5%);
-  }
-  &.warning:hover td {
-    background-color: darken(@warningBackground, 5%);
-  }
-  &.info:hover td {
-    background-color: darken(@infoBackground, 5%);
-  }
+// .table-hover tbody tr {
+//   &.success:hover td {
+//     background-color: darken(@successBackground, 5%);
+//   }
+//   &.error:hover td {
+//     background-color: darken(@errorBackground, 5%);
+//   }
+//   &.warning:hover td {
+//     background-color: darken(@warningBackground, 5%);
+//   }
+//   &.info:hover td {
+//     background-color: darken(@infoBackground, 5%);
+//   }
+// }
+
+.no-touch .table-hover tbody tr.success:hover td {
+  background-color: darken(@successBackground, 5%);
 }
+.no-touch .table-hover tbody tr.error:hover td {
+  background-color: darken(@errorBackground, 5%);
+}
+.no-touch .table-hover tbody tr.warning:hover td {
+  background-color: darken(@warningBackground, 5%);
+}
+.no-touch .table-hover tbody tr.info:hover td {
+  background-color: darken(@infoBackground, 5%);
+}
+

@@ -7,6 +7,21 @@
 // --------------------------------------------------
 
 // Core
+
+.no-touch .btn:hover {
+    color: @grayDark;
+    text-decoration: none;
+    background-position: 0 -15px;
+
+    // transition is only when going to hover, otherwise the background
+    // behind the gradient (there for IE<=9 fallback) gets mismatched
+    .transition(background-position .1s linear);
+}
+
+.no-touch .btn {
+    .buttonBackgroundHover(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));
+}
+
 .btn {
   display: inline-block;
   .ie7-inline-block();
@@ -26,15 +41,9 @@
   .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
 
   // Hover state
-  &:hover {
-    color: @grayDark;
-    text-decoration: none;
-    background-position: 0 -15px;
-
-    // transition is only when going to hover, otherwise the background
-    // behind the gradient (there for IE<=9 fallback) gets mismatched
-    .transition(background-position .1s linear);
-  }
+  // &:hover {
+  //    see above, .no-touch fix
+  // }
 
   // Focus state for keyboard and accessibility
   &:focus {
@@ -146,26 +155,56 @@ input[type="button"] {
   border-color: #c5c5c5;
   border-color: rgba(0,0,0,.15) rgba(0,0,0,.15) rgba(0,0,0,.25);
 }
+
+.no-touch .btn-primary {
+  .buttonBackgroundHover(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+}
+
 .btn-primary {
   .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
 }
+
 // Warning appears are orange
+.no-touch .btn-warning {
+  .buttonBackgroundHover(@btnWarningBackground, @btnWarningBackgroundHighlight);
+}
+
 .btn-warning {
   .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
 }
+
 // Danger and error appear as red
+.no-touch .btn-danger {
+  .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+}
+
 .btn-danger {
   .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
 }
+
 // Success appears as green
+.no-touch .btn-success {
+  .buttonBackgroundHover(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+}
+
 .btn-success {
   .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
 }
+
 // Info appears as a neutral blue
+.no-touch .btn-info {
+  .buttonBackgroundHover(@btnInfoBackground, @btnInfoBackgroundHighlight);
+}
+
 .btn-info {
   .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
 }
+
 // Inverse appears as dark gray
+.no-touch .btn-inverse {
+  .buttonBackgroundHover(@btnInverseBackground, @btnInverseBackgroundHighlight);
+}
+
 .btn-inverse {
   .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
 }
@@ -219,12 +258,12 @@ input[type="submit"].btn {
   color: @linkColor;
   .border-radius(0);
 }
-.btn-link:hover {
+.no-touch .btn-link:hover {
   color: @linkColorHover;
   text-decoration: underline;
   background-color: transparent;
 }
-.btn-link[disabled]:hover {
+.no-touch .btn-link[disabled]:hover {
   color: @grayDark;
   text-decoration: none;
 }
