@@ -22,6 +22,8 @@
 
   "use strict"; // jshint ;_;
 
+  var _dependencies = require('lib/bootstrap/bootstrap-tooltip');
+
 
  /* POPOVER PUBLIC CLASS DEFINITION
   * =============================== */
